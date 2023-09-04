@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ezlo-test-task</string>
     <string name="text_user_name">Shamil Afandiyev</string>
+    <string name="text_reset_data">Reset Data</string>
 </resources>

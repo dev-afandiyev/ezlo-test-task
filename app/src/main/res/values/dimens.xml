@@ -34,5 +34,9 @@
     <dimen name="margin_padding_60">60dp</dimen>
     <dimen name="margin_padding_66">66dp</dimen>
     <dimen name="margin_padding_70">70dp</dimen>
+    <dimen name="margin_padding_72">72dp</dimen>
+    <dimen name="margin_padding_74">74dp</dimen>
+    <dimen name="margin_padding_76">76dp</dimen>
+    <dimen name="margin_padding_78">78dp</dimen>
 
 </resources>
