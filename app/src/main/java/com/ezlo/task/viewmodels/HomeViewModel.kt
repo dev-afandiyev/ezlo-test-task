@@ -3,6 +3,7 @@ package com.ezlo.task.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ezlo.task.db.repositories.IItemsRepository
+import com.ezlo.task.viewmodels.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -15,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val itemsRepository: IItemsRepository
-) : ViewModel() {
+) : BaseViewModel() {
 
     fun getItems() = viewModelScope.launch {
         itemsRepository.getItems()
