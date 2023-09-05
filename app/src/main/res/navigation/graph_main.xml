@@ -9,6 +9,23 @@
         android:id="@+id/homeFragment"
         android:name="com.ezlo.task.ui.screens.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionToDeviceFragment"
+            app:destination="@id/deviceFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/deviceFragment"
+        android:name="com.ezlo.task.ui.screens.device.DeviceFragment"
+        android:label="DeviceFragment"
+        tools:layout="@layout/fragment_device">
+        <argument
+            android:name="entity"
+            app:argType="com.ezlo.task.models.DeviceEntity"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
 
 </navigation>
