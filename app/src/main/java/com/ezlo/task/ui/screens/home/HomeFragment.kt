@@ -26,8 +26,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var adapter: DevicesPagingAdapter? = null
     private var customAlertDialog: CustomAlertDialog? = null
 
-    private var stopEvent = true
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getDevices()
