@@ -25,16 +25,6 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="io.sentry.dsn"
-            android:value="https://54f4e293855e4ca9a3741092450b75eb@o4504298475618304.ingest.sentry.io/4504298476929024" />
-        <meta-data
-            android:name="io.sentry.traces.sample-rate"
-            android:value="1.0" />
-        <meta-data
-            android:name="io.sentry.traces.user-interaction.enable"
-            android:value="true" />
-
     </application>
 
 </manifest>
