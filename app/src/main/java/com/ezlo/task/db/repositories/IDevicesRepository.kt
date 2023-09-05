@@ -12,4 +12,6 @@ interface IDevicesRepository {
 
     suspend fun deleteById(pkDevice: Long)
 
+    suspend fun edit(device: DevicesModel)
+
 }

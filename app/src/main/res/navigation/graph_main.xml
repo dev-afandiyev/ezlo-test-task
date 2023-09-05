@@ -16,7 +16,7 @@
             app:popUpTo="@id/homeFragment" />
     </fragment>
 
-    <fragment
+    <dialog
         android:id="@+id/deviceFragment"
         android:name="com.ezlo.task.ui.screens.device.DeviceFragment"
         android:label="DeviceFragment"
@@ -26,6 +26,6 @@
             app:argType="com.ezlo.task.models.DeviceEntity"
             app:nullable="true"
             android:defaultValue="@null" />
-    </fragment>
+    </dialog>
 
 </navigation>

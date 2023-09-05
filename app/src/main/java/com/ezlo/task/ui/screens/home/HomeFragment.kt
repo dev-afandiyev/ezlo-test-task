@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.flowWithLifecycle
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ezlo.task.databinding.FragmentHomeBinding
 import com.ezlo.task.models.DeviceEntity
@@ -25,6 +25,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: HomeViewModel by viewModels()
     private var adapter: DevicesPagingAdapter? = null
     private var customAlertDialog: CustomAlertDialog? = null
+
+    private var stopEvent = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,12 +61,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun observeViewModel() {
-        lifecycleScope.launch {
-            viewModel.devicesFlow
-                .flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
-                .collect {
-               adapter?.submitData(it)
-            }
+        viewLifecycleOwner.lifecycle.coroutineScope.launch  {
+            viewModel.devicesFlow.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+                .collect { adapter?.submitData(it) }
         }
     }
 

@@ -12,5 +12,10 @@
         <item name="cornerRadius">15dp</item>
     </style>
 
+    <style name="DialogFragmentTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
 
 </resources>

@@ -23,11 +23,6 @@ abstract class BaseMediator<T : Any> : RemoteMediator<Int, T>(), IBaseMediator<T
 interface IBaseMediator<T> {
 
     /**
-     * Function to refresh the database table
-     */
-    suspend fun refresh(list: List<T>)
-
-    /**
      * Function for sending and processing the response
      */
     suspend fun fetchResponse(pageSize: Int): List<T>

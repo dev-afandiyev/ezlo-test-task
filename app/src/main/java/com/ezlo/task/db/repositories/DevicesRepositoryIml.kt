@@ -32,4 +32,8 @@ class DevicesRepositoryIml @Inject constructor(
         dao.deleteById(pkDevice)
     }
 
+    override suspend fun edit(device: DevicesModel) {
+        dao.edit(device)
+    }
+
 }

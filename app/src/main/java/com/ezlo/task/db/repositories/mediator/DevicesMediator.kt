@@ -26,22 +26,13 @@ class DevicesMediator @Inject constructor(
 
         return try {
             val responseList = fetchResponse(limit)
-            if (loadType == LoadType.REFRESH) {
-                refresh(responseList)
-            } else {
-                dao.save(responseList)
-            }
+            dao.save(responseList)
 
             MediatorResult.Success(endOfPaginationReached = responseList.size < limit)
         } catch (e: Exception) {
             e.printStackTrace()
             MediatorResult.Error(e)
         }
-    }
-
-    override suspend fun refresh(list: List<DevicesModel>) {
-        val payloadIdList = list.map { it.pkDevice.toString() }
-        dao.refresh(payloadIdList, list)
     }
 
     override suspend fun fetchResponse(pageSize: Int): List<DevicesModel> {

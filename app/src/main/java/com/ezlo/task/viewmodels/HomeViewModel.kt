@@ -3,14 +3,11 @@ package com.ezlo.task.viewmodels
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import androidx.paging.map
 import com.ezlo.task.db.models.devices.DevicesModel
 import com.ezlo.task.db.repositories.IDevicesRepository
 import com.ezlo.task.viewmodels.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
@@ -41,5 +38,9 @@ class HomeViewModel @Inject constructor(
     fun deleteItem(pkDevice: Long) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteById(pkDevice)
     }
+
+   fun edit(device: DevicesModel) = viewModelScope.launch(Dispatchers.IO) {
+       repository.edit(device)
+   }
 
 }
